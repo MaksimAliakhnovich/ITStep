@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam2</title>
+</head>
+<body>
+   
+   <div style="text-align: center">
+       <textarea cols="50" rows="6" placeholder="Введите текст" id="userTextIn"></textarea><br>
+       <button id="btn">Прочитать и вывести</button><br>
+       <textarea cols="50" rows="6" placeholder="Отсортированные слова будут тут" id="userTextOut"></textarea>
+   </div>
+   
+    <script>
+        
+        var text;
+        var words = [];        
+        
+        var f = function result(){
+            text = document.getElementById("userTextIn").value;
+            
+            text = text.trim();
+            
+            while(text.includes("  ")) {
+            text = text.replace('  ', ' ');                
+            };
+            
+            words = text.split(" ");
+            
+            function sortByLength(a,b) {
+                var word1 = "" + a;
+                var word2 = "" + b;
+                if(word1.length < word2.length) {
+                    return -1;
+                } else if(word1.length > word2.length) {
+                    return 1;
+                };
+                return 0;
+            };
+            
+            words.sort(sortByLength);
+            
+            document.getElementById("userTextOut").value = words;    
+       };       
+
+       document.getElementById("btn").onclick = f;
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <style>
+    
+        input {
+            margin: 5px;
+        }
+        
+        .button {
+            text-align: center;
+        }
+        
+        .settings {
+            display: inline-block;
+        }
+        
+        .wrapper {
+            margin: 1em 0 1em 0;
+        }
+        
+        #line {
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);                        
+        }
+        
+    </style>
+</head>
+<body>
+   
+   <h3>Горизонтальные линии</h3>
+   <p>Выберите значения параметров, которые требуется изменить, и нажмите кнопку <b>"Выполнить"</b>.</p>
+   
+   <form action="">
+        <div class="settings">
+          <table border="1">
+              <tr>
+                  <td width="200">              
+                  Выравнивание<br>
+                  <input type="radio" name="lineAlign" value="left"> слева<br>
+                  <input type="radio" name="lineAlign" value="center"> по центру<br>
+                  <input type="radio" name="lineAlign" value="right"> справа<br>
+                  <input type="text" id="lineHeight" size="5"> толщина линии<br>
+                  <input type="text" id="lineWidth" size="5"> длина линии<br>
+                  </td>
+                  
+                  <td width="100" align="center">
+                  Цвет линии<br>
+                  <select id="lineColor">
+                        <option></option>
+                        <option value="#00ffff">aqua</option>
+                        <option value="#808080">gray</option>
+                        <option value="#000080">navy</option>
+                        <option value="#c0c0c0">silver</option>
+                        <option value="#000000">black</option>
+                        <option value="#008000">green</option>
+                        <option value="#808000">olive</option>
+                        <option value="#008080">teal</option>
+                        <option value="#0000ff">blue</option>
+                        <option value="#00ff00">lime</option>
+                        <option value="#800080">purple</option>
+                        <option value="#ffffff">white</option>
+                        <option value="#ff00ff">fuchsia</option>
+                        <option value="#800000">maroon</option>
+                        <option value="#ff0000">red</option>
+                        <option value="#ffff00">yellow</option>
+                  </select>
+                  </td>
+              </tr>
+          </table>
+          
+          <div class="button">
+              <button id="btn">Выполнить</button>
+          </div>
+          
+      </div>
+   </form>
+   
+   <div class="wrapper">
+       <div id="line"></div>
+   </div>
+   
+   <script>
+
+       $(document).ready(function() {           
+           $("#btn").click(function() {               
+               event.preventDefault();
+               let h = $("#lineHeight").val() + "px";
+               let w = $("#lineWidth").val() + "px";
+               let p = $("input:radio[name ='lineAlign']:checked").val();
+               let c = $("#lineColor").val();
+               
+               switch(p) {
+                   case "left":
+                       $("#line").css({"left": "0", "transform": "translate(0, 0)"});
+                       break;
+                   case "center":
+                       $("#line").css({"left": "50%", "transform": "translate(-50%, 0)"});
+                       break;
+                   case "right":
+                       $("#line").css({"left": "100%", "transform": "translate(-100%, 0)"});
+                       break;
+               };
+               
+               $("#line").css({"height": h, "width": w, "backgroundColor": c});
+           });
+       });
+    
+   </script>
+    
+</body>
+</html>

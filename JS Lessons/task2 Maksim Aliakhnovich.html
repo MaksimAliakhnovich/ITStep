@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<Script>
+
+    <!--Задание 1-->
+
+    alert("Задание 1");
+
+    var a = prompt("Введите первое число");
+    var b = prompt("Введите второе число");
+    var oper = prompt("Что нужно сделать / * - +");
+
+    function add(a, b) {
+        return parseFloat(a) + parseFloat(b);
+    }
+
+    function sub(a, b) {
+        return parseFloat(a) - parseFloat(b);
+    }
+
+    function mul(a, b) {
+        return parseFloat(a) * parseFloat(b);
+    }
+
+    function div(a, b) {
+        if (b != 0) {
+            return parseFloat(a) / parseFloat(b);
+        } else {
+            return "Деление на 0!";
+        }
+    }
+
+    switch (oper) {
+        case '+':
+            alert("Ответ: " + add(a, b));
+            break;
+        case '-':
+            alert("Ответ: " + sub(a, b));
+            break;
+        case '*':
+            alert("Ответ: " + mul(a, b));
+            break;
+        case '/':
+            alert("Ответ: " + div(a, b));
+            break;
+    }
+
+    <!--Задание 2-->
+
+    alert("Задание 2");
+
+    var num = prompt("Введите число");
+    var isNegative = false;
+    var isPrime = true;
+    var divWithoutRemainder = false;
+
+    (function () {
+
+        //проверка на отрицательное
+        if (num.startsWith("-")) {
+            isNegative = true;
+        }
+
+        //перевод в число, хотя и без этого работает
+        num = parseFloat(num);
+
+        //проверка на простоту
+        if (num == 1) {
+            isPrime = false;
+        }
+
+        for (let d = 2; d * d <= num; d++) {
+            if (num % d == 0) {
+                isPrime = false;
+            }
+        }
+
+        //проверка на остаток от деления на 2 3 5 6 9
+        if (num % 2 == 0 && num % 3 == 0 && num % 5 == 0 && num % 6 == 0 && num % 9 == 0) {
+            divWithoutRemainder = true;
+        }
+
+    })();
+
+    alert("Число "
+        + (isNegative ? "отрицательное, " : "положительное, ")
+        + (isPrime ? "простое, " : "составное, ")
+        + (divWithoutRemainder ? "и делится на 2, 3, 5, 6, 9 без остатка." : "не делится на 2, 3, 5, 6, 9 без остатка."));
+
+</Script>
+
+</body>
+</html>

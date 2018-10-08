@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam3</title>
+    <style>
+        span {
+            color:red;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+   
+<form action="">
+       <p><b>Серия паспорта</b> <input name="serial" type="text" size="1" maxlength="2" required>
+       <span id="validSerial">Введите серию паспорта (две латинские заглавные буквы)</span></p>
+       <p><b>Номер паспорта</b> <input name="number" type="text" size="4" maxlength="7" required>
+       <span id="validNumber">Введите номер паспорта (семь цифр)</span></p>
+       <p><b>Номер бланка</b> <input name="blank" type="text" size="4" maxlength="7" required>
+       <span id="validBlank">Введите номер бланка (семь цифр)</span></p>
+       <p>
+            <select name="subject" required>
+                <option></option>
+                <option>Белорусский(Русский)</option>
+                <option>Математика</option>
+                <option>Физика</option>
+            </select>
+            <span id="validSubject">Выберите предмет</span>
+       </p>
+       <p><b>Код на картинке</b> <input name="code" type="text" size="3" maxlength="6" required>
+       <span id="validCode">Введите код (шесть цифр)</span></p>
+       <input type="submit" value="Найти" onclick="validate()">
+   </form>
+   
+   <script>
+       
+       function validate() {
+           
+           event.preventDefault();
+           
+           let str = "";
+           
+           //проверка серии паспорта
+           let patternSerial = /^[A-Z]{2}$/;
+           str = document.forms[0].serial.value;
+           if(!patternSerial.test(str)) {
+               document.getElementById("validSerial").style.display="inline";
+           } else {
+               document.getElementById("validSerial").style.display="none";
+           };
+           
+           //проверка номера паспорта
+           let patternNumber = /^\d{7}$/;           
+           str = document.forms[0].number.value;
+           if(!patternNumber.test(str)) {
+               document.getElementById("validNumber").style.display="inline";
+           } else {
+               document.getElementById("validNumber").style.display="none";
+           };
+           
+           //проверка номера бланка
+           let patternBlank = /^\d{7}$/;           
+           str = document.forms[0].blank.value;
+           if(!patternBlank.test(str)) {
+               document.getElementById("validBlank").style.display="inline";
+           } else {
+               document.getElementById("validBlank").style.display="none";
+           };           
+           
+           //проверка предмета
+           str = document.forms[0].subject.value;
+           if(str.length == 0) {
+               document.getElementById("validSubject").style.display="inline";
+           } else {
+               document.getElementById("validSubject").style.display="none";
+           };
+           
+           //проверка капчи
+           let patternCode = /^\d{6}$/;           
+           str = document.forms[0].code.value;
+           if(!patternCode.test(str)) {
+               document.getElementById("validCode").style.display="inline";
+           } else {
+               document.getElementById("validCode").style.display="none";
+           };
+
+       };
+       
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>База файлов</title>
+    <link rel="stylesheet" href="/css/styleTable.css">
+</head>
+<body>
+<form th:action="@{/file/add}" enctype="multipart/form-data" method="post" name="uploadForm">
+    <div class="form">
+        <fieldset>
+            <h3 align="center">Выберите файл для загрузки на сервер.</h3>
+            <p>
+                <textarea name="description" cols="47" rows="4" placeholder="Введите описание файла"
+                          required></textarea>
+            </p>
+            <input type="file" name="file" required>
+            <input type="submit" value="Загрузить">
+        </fieldset>
+    </div>
+</form>
+<br>
+
+<div class="table">
+    <table>
+        <tr>
+            <th width="5%">№</th>
+            <th width="40%">Имя файла</th>
+            <th>Описание</th>
+            <th width="80px">Скачать</th>
+            <th width="80px">Удалить</th>
+        </tr>
+
+        <tr th:each="item : ${items}">
+            <td><a th:href="@{${item.filePath}}" th:text="${item.fileName}"></a></td>
+            <td th:text="${item.description}"></td>
+            <td><a th:href="@{${item.filePath}}" download><i class="fas fa-arrow-alt-circle-down"></i></a></td>
+            <td>
+                <form th:action="@{delete}" method="post" enctype="multipart/form-data">
+                    <input type="text" name="file_id" th:value="${item.id}" style="display: none">
+                    <input type="text" name="filename" th:value="${item.fileName}" value="${item.fileName}"
+                           style="display: none">
+                    <input type="submit" th:id="deleteButton + ${item.id}" style="display: none">
+                    <label th:for="deleteButton + ${item.id}"><i class="fas fa-times-circle"></i></label>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam1</title>
+</head>
+<body>
+  
+   <textarea cols="28" rows="6">Даны три числа a, b, c. Найти значение выражения ax+by-c , x – наибольшее среди чисел a, b, y – наименьшее среди чисел a, c.</textarea>
+   <p>Введите число a: <input type="text" size="10" id="inputA"></p>
+   <p>Введите число b: <input type="text" size="10" id="inputB"></p>
+   <p>Введите число c: <input type="text" size="10" id="inputC"></p>
+   <p>Результат выполнения программы: <input type="text"  id="outResult"></p>
+   <button id="btn">Вычислить</button>
+   
+    <script>
+        var answer;
+        
+        var f = function result(){
+            let a = parseFloat(document.getElementById("inputA").value);
+            let b = parseFloat(document.getElementById("inputB").value);
+            let c = parseFloat(document.getElementById("inputC").value);
+           
+            let x = Math.max(a,b);
+            let y = Math.min(a,c);
+           
+            answer = a * x + b * y - c;
+            document.getElementById("outResult").value = answer;        
+       };     
+
+       document.getElementById("btn").onclick = f;
+
+
+    </script>
+
+   
+    
+</body>
+</html>

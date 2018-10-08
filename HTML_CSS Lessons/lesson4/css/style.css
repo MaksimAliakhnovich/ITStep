@@ -1,0 +1,70 @@
+.wrapper {
+    width: 1615px;
+    height: 804px;
+    border: 1px solid #d7d7d7;
+    background-color: #ffffff;
+    position: absolute;
+    top: calc(50% - 402px);
+    left: calc(50% - 807px);
+}
+
+.wrapper2 {
+    position: absolute;
+    left: 840px;
+    top: 151px;
+}
+
+.img_beats {
+    width: 600px;
+    height: 600px;
+    margin-left: 0;
+    margin-top: 102px;
+}
+
+.article {
+    width: 290px;
+    height: 34px;
+    color: #2f2f2f;
+    font: 36px "Arial";
+    font-weight: 600;
+    top: 151px;
+}
+
+.description {
+    width: 630px;
+    height: 81px;
+    color: #2f2f2f;
+    font: 24px "Arial";
+    font-weight: 400;
+    margin: 48px 0 0 0;
+}
+
+.price1 {
+    width: 55px;
+    height: 23px;
+    color: #2f2f2f;
+    font: 24px "Arial";
+    font-weight: 400;
+    margin: 87px 0 0 0;
+}
+
+.price2 {
+    width: 175px;
+    height: 50px;
+    color: #2f2f2f;
+    font: 48px "Arial";
+    font-weight: 400;
+    margin: 36px 0 0 0;
+}
+
+.button {
+    width: 402px;
+    height: 79px;
+    background-color: #ec744a;
+    color: #ffffff;
+    font: 30px "Arial";
+    font-weight: 400;
+    margin: 90px 0 0 0;
+    text-align: center;
+    line-height: 79px;
+}

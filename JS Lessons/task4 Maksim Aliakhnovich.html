@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h3>Документ:</h3>
+    <p>Заголовок: <span id="headline"></span></p>
+    <p>Тело: <span id="body"></span></p>
+    <p>Футер: <span id="footer"></span></p>
+    <p>Дата: <span id="date"></span></p>
+    <p>Приложение: <span id="app"></span></p>   
+        
+    <script>
+            
+        var doc = {
+                headline: prompt("Заголовок"),
+                body: prompt("Тело"),
+                footer: prompt("Футер"),
+                date: prompt("Дата"),
+                app: {
+                    headline: prompt("Заголовок"),
+                    body: prompt("Тело"),
+                    footer: prompt("Футер"),
+                    date: prompt("Дата")
+                }          
+        };
+        
+        
+        function outDoc() {                              
+
+                    for(var key in doc) {
+                    
+                    if(doc[key] instanceof Object) {
+                        for(var keyObj in doc[key]) {                            
+                            document.getElementById(key).innerHTML = doc[key] + ": " + doc[key][keyObj];
+                        };
+                        
+                    } else {                        
+                        document.getElementById(key).innerHTML = doc[key];                        
+                        };                        
+                    };                
+        };
+
+        outDoc();      
+    
+    </script>
+    
+</body>
+</html>
