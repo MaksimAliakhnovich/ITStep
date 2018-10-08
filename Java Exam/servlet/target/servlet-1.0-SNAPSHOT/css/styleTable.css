@@ -1,0 +1,40 @@
+div.form {
+    width: 380px;
+    margin: 0 auto;
+}
+
+div.table {
+    width: 700px;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+td {    
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: dimgray
+}
+
+tr, td, th {
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: darksalmon;
+}
+
+tr:nth-child(odd) {
+    background-color: #7dc9e2;
+}
+
+body {
+    font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+}
